@@ -1,0 +1,272 @@
+/* ================================================================
+   1. 全局重置（Global Reset）
+   适用于整个应用的默认样式
+   ================================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+  background: #f0f4f9;
+  color: #1e293b;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ================================================================
+   2. TopHeader ── 顶部导航栏
+   对应组件: TopHeader.tsx
+   ================================================================ */
+
+.topbar {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0b1220;
+}
+
+.logo-icon {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+/* ================================================================
+   3. App Layout ── 整体布局（侧边栏、主区域、右侧面板）
+   对应组件: App.tsx
+   ================================================================ */
+
+.layout {
+  display: flex;
+  height: calc(100vh - 64px);
+  background: #f0f4f9;
+}
+
+/* 主内容区域 */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  min-width: 0;
+  background: #f0f4f9;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+
+.main::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ================================================================
+   4. SidebarMenu ── 左侧菜单栏
+   对应组件: SidebarMenu.tsx + App.tsx (version-box)
+   ================================================================ */
+
+.sidebar {
+  width: 240px;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.menu-title {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.menu {
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-size: 14px;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.menu.active {
+  background: #eef2ff;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.menu-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.menu-divider {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 8px 0 12px 0;
+}
+
+/* 版本信息盒（位于侧边栏底部） */
+.version-box {
+  margin-top: auto;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.version-box strong {
+  color: #1e293b;
+}
+
+.version-box .stat {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 10px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.version-box .stat span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.version-box .stat span:last-child {
+  text-align: right;
+}
+
+/* ================================================================
+   5. Right Panel ── 右侧面板（PDF 预览）
+   对应组件: App.tsx
+   ================================================================ */
+
+.right-panel {
+  width: 340px;
+  background: #ffffff;
+  border-left: 1px solid #e2e8f0;
+  padding: 20px 18px;
+  overflow-y: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.right-panel::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+
+/* 面板区块容器 */
+.panel-section {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+/* 面板区块标题 */
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+}
+
+/* PDF 预览卡片 */
+.pdf-preview {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 120px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.pdf-title {
+  font-weight: 600;
+  color: #2563eb;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.pdf-page {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.hint-detail {
+  font-size: 11px;
+  color: #94a3b8;
+}

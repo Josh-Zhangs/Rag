@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+*.egg
+
+# 环境变量
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# 前端
+frontend/node_modules/
+frontend/dist/
+
+# 后端测试输出
+backend/tests/output/
+
+# 二进制运行时、大模型目录，整体全部忽略，不进git（体积巨大）
+backend/runtime/
+backend/models/
+
+# 向量数据库 lancedb（你漏掉的，必须加上，向量库不能提交git）
+lancedb/
+*.lance
+
+# 日志、临时文件
+*.log
+*.tmp
+
+# pyinstaller本地打包相关
+build/
+dist/
+build.bat
+build_exe.spec
+
+# 系统文件
+Thumbs.db
+.DS_Store
